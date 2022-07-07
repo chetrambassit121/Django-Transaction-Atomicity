@@ -12,7 +12,7 @@ def process_payment(request):
 
     form = Payment(request.POST)
 
-    if form.is_valid():                                            # form .. the three variables bound to the three input fields in our form on index.html 
+    if form.is_valid():                                            # form .. the three variables bound to the three input fields in our form.py  
       x = form.cleaned_data['payor']                               
       y = form.cleaned_data['payee']                               
       z = decimal.Decimal(form.cleaned_data['amount'])             

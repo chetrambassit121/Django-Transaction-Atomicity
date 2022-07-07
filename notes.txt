@@ -1,8 +1,41 @@
+this project is a simple payee, payor, amount money transaction 
+if the payee, sends money to a payor that doesnt exist, the payee still loses there money and this is a problem.
+SOLUTION:
+1. applying django.db.transaction 
+2. atomicity logic
+
+if the payee, sends money to a payor that doesnt exist, the payee still loses there money ans this is a problem. 
+
 Django’s default behaviour is to run in autocommit mode, By default each query is immediately committed to the database, 
 each SQL query gets wrapped in its own transaction and a transaction is automatically committed or rolled back.
 
-A transaction is a sequence of one or more SQL operations that are treated as a unit. All operations should be executed successfully in order to call the transaction successful. 
+A transaction is a sequence of one or more SQL operations that are treated as a unit. 
+All operations should be executed successfully in order to call the transaction successful. 
 Transactions ideally have four properties, commonly known as ACID. 
-This is a standard set of properties aimed to guarantee database transactions are processed reliably which is especially concerned with how a database recovers from any failure.
+This is a standard set of properties aimed to guarantee database transactions are processed reliably 
+which is especially concerned with how a database recovers from any failure.
 
-Atomicity is the defining property of database transactions. Atomic require us to create a block of code within which the atomicity on the database is guaranteed.
+Atomicity is the defining property of database transactions. 
+Atomic require us to create a block of code within which the atomicity on the database is guaranteed.
+
+
+Transactions have four properties known as ACID. 
+ACID is set of properties aimed to guarentee database transactions are processed reliably 
+ACID takes in consideration how database recovers from any failures. 
+
+Atomic/Atomicity
+- gurentees that either all of the transaction succeeds or none of it does 
+
+Consistency
+- ensures that you gurentee that all data will be consistent 
+
+Isolated
+- gurentees that all tranactions will occure in isolation. no transaction will be affected by any other transaction 
+
+Durable
+- once a transaction is committed, it will remin in the system even if theres a system crash immeditly following the transaction 
+
+
+OVERALL 
+
+if one user has many transactions, using django.db transactions will ensure all of the above for all those transactions 
